@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  place: MyString
+  event_datetime: 2017-10-22 15:01:51
+  capacity: 1
+  seats_taken: 1
+
+two:
+  name: MyString
+  description: MyString
+  place: MyString
+  event_datetime: 2017-10-22 15:01:51
+  capacity: 1
+  seats_taken: 1

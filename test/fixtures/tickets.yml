@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 1
+  code: MyString
+  ticket_url: MyString
+  seat_number: MyString
+
+two:
+  event_id: 1
+  code: MyString
+  ticket_url: MyString
+  seat_number: MyString
