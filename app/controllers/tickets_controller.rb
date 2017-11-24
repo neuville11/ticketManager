@@ -1,6 +1,4 @@
 class TicketsController < ApplicationController
-  require 'rqrcode'
-
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   # GET /tickets
