@@ -1,47 +1,49 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container">
+  <%= form_with(model: event, local: true) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :event_name, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :event_description, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :place %>
+      <%= form.text_field :place, id: :event_place, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :event_datetime %>
+      <%= form.datetime_select :event_datetime, id: :event_event_datetime, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :capacity %>
+      <%= form.number_field :capacity, id: :event_capacity, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :seats_taken %>
+      <%= form.number_field :seats_taken, id: :event_seats_taken, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :event_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :place %>
-    <%= form.text_field :place, id: :event_place %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_datetime %>
-    <%= form.datetime_select :event_datetime, id: :event_event_datetime %>
-  </div>
-
-  <div class="field">
-    <%= form.label :capacity %>
-    <%= form.number_field :capacity, id: :event_capacity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :seats_taken %>
-    <%= form.number_field :seats_taken, id: :event_seats_taken %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

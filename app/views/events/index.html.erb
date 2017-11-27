@@ -1,38 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Events</h1>
+  <%= paginate @events %>
 
-<h1>Events</h1>
-<%= paginate @events %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Place</th>
-      <th>Event datetime</th>
-      <th>Capacity</th>
-      <th>Seats taken</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.place %></td>
-        <td><%= event.event_datetime %></td>
-        <td><%= event.capacity %></td>
-        <td><%= event.seats_taken %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Place</th>
+        <th>Event datetime</th>
+        <th>Capacity</th>
+        <th>Seats taken</th>
+        <th colspan="3">Options</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @events %>
-<br>
+    </thead>
 
-<%= link_to 'New Event', new_event_path %>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= event.place %></td>
+          <td><%= datetime_format(event.event_datetime) %></td>
+          <td><%= event.capacity %></td>
+          <td><%= event.seats_taken %></td>
+          <td><%= link_to 'Show', event %></td>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @events %>
+  <br>
+
+  <%= link_to 'New Event', new_event_path, class: 'btn btn-success' %>
+</div>
