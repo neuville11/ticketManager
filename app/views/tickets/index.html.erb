@@ -20,7 +20,7 @@
         <td><%= ticket.code %></td>
         <td><%= ticket.ticket_url %></td>
         <td><%= ticket.seat_number %></td>
-        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Show', ticket_url(ticket.code) %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find_by(code: params[:id])
     @event = Event.find(@ticket.event_id)
   end
 
@@ -71,6 +71,10 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:event_id, :code, :ticket_url, :seat_number)
+      params.require(:ticket).permit( :event_id,
+                                      :code,
+                                      :ticket_url,
+                                      :seat_number
+                                    )
     end
 end
