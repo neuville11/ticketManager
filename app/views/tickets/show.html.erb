@@ -27,7 +27,7 @@
 
   <p>
     <strong>Seat number:</strong>
-    <%= @ticket.seat_number %>
+    <%= @ticket.seat_number || 'not assigned' %>
   </p>
 
   <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
