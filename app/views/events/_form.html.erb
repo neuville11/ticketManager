@@ -27,9 +27,9 @@
       <%= form.text_field :place, id: :event_place, class: 'form-control' %>
     </div>
 
-    <div class="field">
+    <div class="field date-field">
       <%= form.label :event_datetime %>
-      <%= form.datetime_select :event_datetime, id: :event_event_datetime, class: 'form-control' %>
+      <%= form.datetime_select :event_datetime, id: :event_event_datetime, html: { class: 'form-control' } %>
     </div>
 
     <div class="field">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit "Save", class: 'btn btn-success' %>
     </div>
   <% end %>
 </div>
