@@ -44,9 +44,24 @@
 
   <% if @tickets %>
     <% @tickets.each do |ticket| %>
-      <div class="qr-code">
-        <%= ticket.qr_code&.html_safe || 'Genetating QR code' %>
-        <p><%= ticket.code %></p>
+      <div class="card qr-code">
+          <%= ticket.qr_code&.html_safe || 'Genetating QR code' %>
+        <div class="card-block">
+          <h4 class="card-title"><%= ticket.code %></h4>
+          <strong>Event:</strong>
+          <%= @event.name %>
+          <br/>
+          <strong>Description:</strong>
+          <%= @event.description %>
+          <br/>
+          <strong>Place:</strong>
+          <%= @event.place %>
+          <br/>
+          <strong>Event datetime:</strong>
+          <br/>
+          <%= datetime_format(@event.event_datetime) %>
+          <a href="#" class="btn btn-primary">Go to ticket</a>
+        </div>
       </div>
     <% end %>
   <% else %>
