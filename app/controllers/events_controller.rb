@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
+    @tickets = Ticket.where(event_id: params[:id]).order(:id)
   end
 
   # GET /events/new

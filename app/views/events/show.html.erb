@@ -37,4 +37,19 @@
 
   <%= link_to 'Edit', edit_event_path(@event) %> |
   <%= link_to 'Back', events_path %>
+
+  <p>
+    <strong>QR codes:</strong>
+  </p>
+
+  <% if @tickets %>
+    <% @tickets.each do |ticket| %>
+      <div class="qr-code">
+        <%= ticket.qr_code&.html_safe || 'Genetating QR code' %>
+        <p><%= ticket.code %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Tickets are being generated, wait a momment and refresh this page</p>
+  <% end %>
 </div>
