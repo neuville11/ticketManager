@@ -12,6 +12,11 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @tickets = Ticket.where(event_id: params[:id]).order(:id)
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf { render template: 'events/tickets_list', pdf: 'tickets_list'}
+    end
   end
 
   # GET /events/new

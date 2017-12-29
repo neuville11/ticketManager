@@ -1,49 +1,23 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
+<!DOCTYPE html>
+<head>
+  <title>Tickets</title>
+  <meta name="author" content="Neuville11">
+  <%= wicked_pdf_stylesheet_link_tag 'tickets'%>
+</head>
+<body>
   <p>
-    <strong>Name:</strong>
+    <strong>Event:</strong>
     <%= @event.name %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Description:</strong>
     <%= @event.description %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Place:</strong>
     <%= @event.place %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Event datetime:</strong>
     <%= datetime_format(@event.event_datetime) %>
   </p>
-
-  <p>
-    <strong>Capacity:</strong>
-    <%= @event.capacity %>
-  </p>
-
-  <p>
-    <strong>Seats taken:</strong>
-    <%= @event.seats_taken %>
-  </p>
-
-  <p>
-    <strong>Available:</strong>
-    <%= @event.available %>
-  </p>
-
-  <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to 'Back', events_path %>
-
-  <p>
-    <strong>QR codes:</strong>
-  </p>
-  <div>
-    <a href="<%= event_path(@event.id) + '.pdf' %>" class="btn btn-primary" target="_blank">Generate PDF with tickets</a>
-  </div>
 
   <% if @tickets %>
     <% @tickets.each do |ticket| %>
@@ -63,11 +37,11 @@
           <strong>Event datetime:</strong>
           <br/>
           <%= datetime_format(@event.event_datetime) %>
-          <a href="<%= ticket_path(ticket.code) %>" class="btn btn-primary">Go to ticket</a>
         </div>
       </div>
     <% end %>
   <% else %>
     <p>Tickets are being generated, wait a momment and refresh this page</p>
   <% end %>
-</div>
+</body>
+</html>
