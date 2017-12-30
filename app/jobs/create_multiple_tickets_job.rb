@@ -7,7 +7,7 @@ class CreateMultipleTicketsJob < ApplicationJob
     times_to_be_performed = event.capacity
     for index in 1..times_to_be_performed
       code = event.id.to_s + "-" + SecureRandom.hex(3) + "-" + index.to_s
-      url = 'http://localhost:3000/tickets/' + code
+      url = 'https://tickt-manager.herokuapp.com/tickets/' + code
       ticket = Ticket.create(event_id: event.id, code: code, ticket_url: url )
       ticket.qr_code = generate_qr_code(url)
       ticket.save
