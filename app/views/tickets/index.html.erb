@@ -16,7 +16,7 @@
     <tbody>
       <% @tickets.each do |ticket| %>
         <tr>
-          <td><%= Event.find(ticket.event_id).name %></td>
+          <td><%= link_to Event.find(ticket.event_id).name, event_url(ticket.event_id) %></td>
           <td><%= ticket.code %></td>
           <td><%= ticket.ticket_url %></td>
           <td><%= ticket.seat_number || 'not assigned' %></td>

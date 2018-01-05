@@ -18,7 +18,7 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><%= event.name %></td>
+          <td><%= link_to event.name, event_url(event.id) %></td>
           <td><%= event.place %></td>
           <td><%= datetime_format(event.event_datetime) %></td>
           <td><%= event.capacity %></td>

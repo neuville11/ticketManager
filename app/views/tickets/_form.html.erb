@@ -12,28 +12,30 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :event_id %>
-      <%= form.collection_select :event_id, Event.all, :id, :name, class: 'form-control' %>
-    </div>
+    <%- if request_action == 'new' %>
+      <div class="field col-md-4">
+        <%= form.label :event_id %>
+        <%= form.collection_select :event_id, Event.all, :id, :name, {}, class: 'form-control' %>
+      </div>
 
-    <div class="field">
-      <%= form.label :code %>
-      <%= form.text_field :code, id: :ticket_code, class: 'form-control' %>
-    </div>
+      <div class="field col-md-12">
+        <%= form.label :code %>
+        <%= form.text_field :code, id: :ticket_code, class: 'form-control' %>
+      </div>
 
-    <div class="field">
-      <%= form.label :ticket_url %>
-      <%= form.text_field :ticket_url, id: :ticket_ticket_url, class: 'form-control' %>
-    </div>
+      <div class="field col-md-12">
+        <%= form.label :ticket_url %>
+        <%= form.text_field :ticket_url, id: :ticket_ticket_url, class: 'form-control' %>
+      </div>
+    <% end %>
 
-    <div class="field">
+    <div class="field col-md-2">
       <%= form.label :seat_number %>
       <%= form.text_field :seat_number, id: :ticket_seat_number, class: 'form-control' %>
     </div>
 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="field col-md-12">
+      <%= form.submit 'Submit', class: 'btn btn-success' %>
     </div>
   <% end %>
 </div>

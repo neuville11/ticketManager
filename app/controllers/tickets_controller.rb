@@ -21,6 +21,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
+    @ticket = Ticket.find_by(code: params[:id])
   end
 
   # POST /tickets
