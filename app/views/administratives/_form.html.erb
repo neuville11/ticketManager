@@ -1,0 +1,22 @@
+<%= form_with(model: administrative, local: true) do |form| %>
+  <% if administrative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(administrative.errors.count, "error") %> prohibited this administrative from being saved:</h2>
+
+      <ul>
+      <% administrative.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cellphone %>
+    <%= form.text_field :cellphone, id: :administrative_cellphone %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

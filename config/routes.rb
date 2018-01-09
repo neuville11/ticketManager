@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :schools
+  resources :staffs
+  resources :coordinators
+  resources :administratives
   devise_for :users
   resources :events
   resources :tickets

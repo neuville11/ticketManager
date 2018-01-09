@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105211811) do
+ActiveRecord::Schema.define(version: 20180109012605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administratives", force: :cascade do |t|
+    t.string "cellphone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coordinators", force: :cascade do |t|
+    t.string "cellphone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -23,6 +35,18 @@ ActiveRecord::Schema.define(version: 20180105211811) do
     t.integer "capacity"
     t.boolean "available", default: true
     t.integer "seats_taken", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "zone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
