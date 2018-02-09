@@ -15,6 +15,7 @@ class AdministrativesController < ApplicationController
   # GET /administratives/new
   def new
     @administrative = Administrative.new
+    @administrative.build_user
   end
 
   # GET /administratives/1/edit
@@ -69,6 +70,15 @@ class AdministrativesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrative_params
-      params.require(:administrative).permit(:cellphone)
+      params.require(:administrative).permit(
+        :cellphone,
+        user_attributes: [
+          :id,
+          :first_name,
+          :last_name,
+          :email.downcase
+        ]
+      )
     end
+
 end

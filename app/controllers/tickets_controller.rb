@@ -43,10 +43,11 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    @ticket = Ticket.find_by(id: params[:id])
     respond_to do |format|
       if @ticket.update(ticket_params)
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ticket }
+        format.html { redirect_to ticket_url(@ticket.code), notice: 'Ticket was successfully updated.' }
+        format.json { render :show, status: :ok, location: @ticket.code }
       else
         format.html { render :edit }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
@@ -72,10 +73,12 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit( :event_id,
-                                      :code,
-                                      :ticket_url,
-                                      :seat_number
-                                    )
+      params.require(:ticket).permit(
+        :event_id,
+        :code,
+        :ticket_url,
+        :seat_number,
+        :status
+      )
     end
 end

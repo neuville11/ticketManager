@@ -33,6 +33,10 @@
       <%= form.label :seat_number %>
       <%= form.text_field :seat_number, id: :ticket_seat_number, class: 'form-control' %>
     </div>
+    <div class="field col-md-12">
+      <%= form.label :status %>
+      <%= form.select :status, Ticket::STATUS, {}, class: 'form-control' %>
+    </div>
 
     <div class="field col-md-12">
       <%= form.submit 'Submit', class: 'btn btn-success' %>

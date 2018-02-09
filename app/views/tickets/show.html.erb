@@ -22,7 +22,7 @@
 
   <p>
     <strong>Seat number:</strong>
-    <%= @ticket.seat_number || 'not assigned' %>
+    <%= 'not assigned' if (@ticket.seat_number || '') %>
   </p>
 
   <p>
@@ -31,8 +31,8 @@
   </p>
 
   <div>
-    <%= link_to 'Edit', edit_ticket_path(@ticket.code) %> |
-    <%= link_to 'Back', tickets_path %>
+    <%= link_to 'Edit', edit_ticket_path(@ticket.code), class: 'btn btn-success' %> |
+    <%= link_to 'Back', tickets_path, class: 'btn btn-primary' %>
   </div>
 
   <p><strong>QR code:</strong></p>
@@ -41,10 +41,4 @@
     <%= @ticket.qr_code.html_safe %>
     <%= @ticket.code %>
   </div>
-  <%- if @ticket.status == 'pending' %>
-    <div>
-      <button class="btn btn-success check-in-button">Check in</button>
-    </div>
-  <% end %>
-
 </div>

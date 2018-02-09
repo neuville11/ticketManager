@@ -9,6 +9,7 @@
         <th>Code</th>
         <th>Ticket url</th>
         <th>Seat number</th>
+        <th>Status</th>
         <th colspan="3">Options</th>
       </tr>
     </thead>
@@ -19,9 +20,10 @@
           <td><%= link_to Event.find(ticket.event_id).name, event_url(ticket.event_id) %></td>
           <td><%= ticket.code %></td>
           <td><%= ticket.ticket_url %></td>
-          <td><%= ticket.seat_number || 'not assigned' %></td>
+          <td><%= 'not assigned' if (ticket.seat_number || '') %></td>
+          <td><%= ticket.status %></td>
           <td><%= link_to 'Show', ticket_url(ticket.code) %></td>
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket.code) %></td>
           <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

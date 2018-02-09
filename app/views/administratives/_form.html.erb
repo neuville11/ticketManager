@@ -11,9 +11,15 @@
     </div>
   <% end %>
 
+  <%= form.fields_for :user do |fu| %>
+    <div class="field">
+      <%= fu.label :first_name %>
+      <%= fu.text_field :first_name, class: 'form-control' %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :cellphone %>
-    <%= form.text_field :cellphone, id: :administrative_cellphone %>
+    <%= form.text_field :cellphone, id: :administrative_cellphone, class: 'form-control' %>
   </div>
 
   <div class="actions">
