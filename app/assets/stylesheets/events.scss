@@ -9,3 +9,29 @@
     width: 19%;
   }
 }
+
+.navbar-nav > li {
+  padding: 1.5rem;
+}
+
+.nav-item {
+  a {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.navbar-brand {
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.navbar {
+  border-radius: 0;
+}
