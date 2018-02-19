@@ -39,7 +39,7 @@ gem 'kaminari'
 gem 'rqrcode'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
